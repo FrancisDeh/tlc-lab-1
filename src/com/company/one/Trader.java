@@ -1,5 +1,7 @@
 package com.company.one;
 
+import com.company.exceptions.TradeIDException;
+
 public class Trader {
     private String name;
     private Account  account;
@@ -9,7 +11,7 @@ public class Trader {
         this.account = new Account();
     }
 
-    public void addTrade(Trade trade) {
+    public void addTrade(Trade trade) throws TradeIDException {
         this.account.setTrade(trade);
     }
 

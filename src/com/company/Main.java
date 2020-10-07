@@ -3,6 +3,7 @@ package com.company;
 import com.company.collections.Card;
 import com.company.collections.SuitOrder;
 import com.company.collections.ValueOrder;
+import com.company.exceptions.TradeIDException;
 import com.company.exceptions.TradePriceException;
 import com.company.one.Trader;
 import com.company.zero.BondTrade;
@@ -17,7 +18,7 @@ import java.util.Random;
 
 public class Main {
 
-    public static void main(String[] args) throws TradePriceException {
+    public static void main(String[] args) throws TradePriceException, TradeIDException {
         Trade trade = new Trade("T1", "APPL", 100, 15.25);
         Trade trade2 = new Trade("T2", "MML", 10, 10.25);
         Trade trade3 = new Trade("T3", "HHL", 5);

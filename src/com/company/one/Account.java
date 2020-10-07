@@ -1,11 +1,13 @@
 package com.company.one;
 
+import com.company.exceptions.TradeIDException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Account {
     
-    private List<Trade> trades = new ArrayList<>();
+    private final List<Trade> trades = new ArrayList<>();
 
     public Account() {
     }
@@ -19,7 +21,19 @@ public class Account {
         return total;
     }
 
-    public void setTrade(Trade trade) {
+    public void setTrade(Trade trade) throws TradeIDException {
+        boolean idAlreadyExist = false;
+        for (Trade t: trades) {
+            if (t.getId().equals(trade.getId())) {
+                idAlreadyExist = true;
+                break;
+            }
+        }
+
+        if(idAlreadyExist) {
+            throw new TradeIDException("Duplicate ID cannot be used");
+        }
+
         trades.add(trade);
     }
 }
